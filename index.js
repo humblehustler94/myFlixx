@@ -1,4 +1,6 @@
-const express = require('express');
+const express = require('express'),
+    morgan = require('morgan');
+
 const app = express();
 
 // ADD middleware 
@@ -7,14 +9,18 @@ let myLogger = (req, res, next) => {
     next();
 };
 
-let requestTime = (req, res, next => {
+let requestTime = (req, res, next) => {
     req.requestTime = Date.now();
     next();
-});
+};
 
 // ADD 
 app.use(myLogger);
 app.use(requestTime);
+app.use(morgan('common'));
+
+// using express.static to server documentation.html
+app.use(express.static('public'));
 
 // code added in section 2.4
 // benefit of using Express is that simplifies the Node.js syntax
@@ -71,7 +77,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/documentation', (req, res) => {
-    res.sendFile('public/documentation.html', { root: __dirname });
+    res.sendFile('public/documentation.html', {  root: 'public' });
 });
 
 app.get('/secreturl', (req, res) => {
