@@ -3,7 +3,7 @@ const express = require('express'),
 
 const app = express();
 
-// ADD middleware 
+// Middleware : myLogger & requestTime 
 let myLogger = (req, res, next) => {
     console.log(req.url);
     next();
@@ -86,6 +86,18 @@ app.get('/secreturl', (req, res) => {
 
 app.get('/movies', (req, res) => {
     res.json(topMovies);
+});
+
+// Middleware : error handling 
+const bodyParser = require('body-parser'),
+methodOverride = require('method-override');
+
+app.use(bodyParser.json());
+app.use(methodOverride());
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
 });
 
 // listen for requests
