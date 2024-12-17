@@ -45,6 +45,114 @@
         <li>An example response</li>
     </ul>
 
+    <table>
+        <thead>
+            <tr>
+                <th>Business Logic</th>
+                <th>URL</th>
+                <th>HTTP Method</th>
+                <th>Query Parameters</th>
+                <th>Request body data format</th>
+                <th>Response body data format</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Get ALL movies-->
+            <tr>
+                <td>Return data of all movies</td>
+                <td>http://localhost:8080/movies</td>
+                <td>GET</td>
+                <td></td>
+                <td></td>
+                <td>A JSON File with all movies</td>
+            </tr>
+            <tr>
+                <!--Return data (description, genre, director, image URL) -->
+                <td>Return data (description, genre, director, image URL)</td>
+                <td>http://localhost:8080/movies/:title</td>
+                <td>GET</td>
+                <td></td>
+                <td></td>
+                <td>A JSON file with movie details</td>
+            </tr>
+            <!-- Return data about a genre (descripition) by name/title ("Thiller")-->
+            <tr>
+                <td>Return data about a genre</td>
+                <td>http://localhost:8080/movies/genre/:genreName</td>
+                <td>GET</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <!--Return data about a Director (bio, birth year, death year) by name-->
+                <td>Return data about a Director</td>
+                <td>http://localhost:8080/movies/director/:directorName</td>
+                <td>GET</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <!-- Get ALL Users-->
+            <tr>
+                <td>Return data of all users</td>
+                <td>http://localhost:8080/users</td>
+                <td>GET</td>
+                <td></td>
+                <td></td>
+                <td>A JSON File with all users</td>
+            </tr>
+            <tr>
+                <!--Allow new users to register-->
+                <td>New Users Register</td>
+                <td>/users</td>
+                <td>POST</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <!--Allow users to update their user info (username)-->
+                <td>Update User Name</td>
+                <td>/users/:id</td>
+                <td>PUT</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <!--Allow users to add a movie to their list of favorites-->
+                <td>Allow users to add a movie to their list of favorites</td>
+                <td>/users/:id/:movieTitle</td>
+                <td>POST</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <!--Allow users to remove a movie from their list of favorites-->
+                <td>Allow users to remove a movie from their list of favorites--</td>
+                <td>/users/:id/:movieTitle</td>
+                <td>DELETE</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <!--Allow existing users to deregister-->
+                <!--showing only a text that a user email has been removed-->
+                <td>Allow existing users to deregister</td>
+                <td>/users/:id</td>
+                <td>DELETE</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
     
 </body>
 </html>
